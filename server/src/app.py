@@ -12,5 +12,6 @@ bp_cats = Blueprint('cats', __name__, url_prefix='/v1/cats')
 CatRouter.handler(bp_cats)
 app.register_blueprint(bp_cats)
 
+
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0',port=6000)
