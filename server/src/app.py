@@ -8,6 +8,7 @@ app.config['SECRET_KEY'] = 'I/L0ve/CIT-U'
 
 app.register_blueprint(DogRouter.handler())
 app.register_blueprint(CatRouter.handler())
+app.register_blueprint(UserRouter.handler())
 
 @app.route('/v1/login', methods=['POST'])
 def login():
