@@ -19,10 +19,10 @@ def verify_token(token):
 
 def login(username, password):
     db = Db.get_instance()
-    sql = "Select * FROM users WHERE username = " + username + "" 
+    sql = "SELECT * FROM users WHERE username = '" + username + "'"; 
     user = db.fetchone(sql)
-    # TODO: use the database to verify the username and password
-    if user['password'] == password:
+    ### TODO: use the database to verify the username and password
+    if user['password'] == password: #username == 'admin' and password == 'admin' :
         payload = {
             'username': username,
             'id': 100,
