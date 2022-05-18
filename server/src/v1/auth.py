@@ -1,4 +1,5 @@
 from flask import jsonify, request, current_app
+from db import Db
 import jwt
 import datetime
 
@@ -17,8 +18,11 @@ def verify_token(token):
     return decoded_token
 
 def login(username, password):
+    db = Db.get_instance()
+    sql = "Select * FROM users WHERE username = " + username + "" 
+    user = db.fetchone(sql)
     # TODO: use the database to verify the username and password
-    if username == 'admin' and password == 'admin':
+    if user['password'] == password:
         payload = {
             'username': username,
             'id': 100,
